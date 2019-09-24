@@ -4,9 +4,9 @@ const STORE = {
   todaysCustomers: [
     { baseMealPrice: 0.00, taxRate: 0.00, tipPercentage: 0.00, subTotal: 0.00, tip: 0.00, total: 0.00 }
   ],
-  myEarnings: [
+  myEarnings:
     { tipTotal: 0.00, mealCount: 0, averageTipPerMeal: 0.00 }
-  ]
+
 };
 
 function getNewestObj() {
@@ -18,7 +18,8 @@ function calculateSubtotal(obj) {
   let base = obj.baseMealPrice;
   let tax= obj.taxRate;
   let result= (parseFloat(base) * parseFloat(tax)) + parseFloat(base);
-  let roundedResult= Math.ceil(result * 100) / 100;
+  let roundedResultone= Math.ceil(result * 100) / 100;
+  let roundedResult = roundedResultone.toFixed(2);
   obj.subTotal= roundedResult;
   $('.updateSubtotal').html(`${obj.subTotal}`);
 }
@@ -30,7 +31,8 @@ function calculateTip(obj) {
   let subTotal= obj.subTotal;
   console.log(subTotal);
   let tipAmount= tipPercent * subTotal;
-  let roundedTipAmount = Math.ceil(tipAmount * 100) / 100;
+  let roundedTipAmountone = Math.ceil(tipAmount * 100) / 100;
+  let roundedTipAmount = roundedTipAmountone.toFixed(2);
   obj.tip = roundedTipAmount;
   $('.updateTip').html(`${obj.tip}`);
 }
@@ -66,23 +68,32 @@ function submitButtonPressed() {
 
 function resetMealDetailsButtonPressed() {
   $('.resetCalcButton').submit(function (event) {
-    console.log('reset button!');
+    $('input').val('');
   });
-
 }
 
 function updateMyEarnings(obj) {
 calculateTipTotal(obj);
-updateMealCount(obj);
+updateMealCount();
 updateAverageTipPerMeal(obj);
 }
 
 function calculateTipTotal(obj) {
+let myEarnings = STORE.myEarnings;
+let currentDailyTips= myEarnings.tipTotal;
+let incomingTip = obj.tip;
+let updatedTip = parseFloat(currentDailyTips) + parseFloat(incomingTip);
+myEarnings.tipTotal = updatedTip;
+
 
 }
 
-function updateMealCount(obj) {
-
+function updateMealCount() {
+  let myEarnings = STORE.myEarnings;
+  let currentMealCount = myEarnings.mealCount;
+  currentMealCount+= 1;
+  myEarnings.mealCount = currentMealCount;
+  $('.updateMealCount').html(`${myEarnings.mealCount}`);
 }
 
 function updateAverageTipPerMeal(obj) {
