@@ -16,17 +16,42 @@
   <main>
     <div class= "enterTheMealDetails big div">
       <h2>Enter the Meal Details</h2>
+      <form class="enterTheMealDetailsCalculator">
+        <fieldset name="MealDetailsCalculator">
+          <label for ="baseMealPrice"> Base Meal Price: $</label>
+          <input type= "text" name = "calculator" id="baseMealPrice">
+          <br>
+          <label for ="taxRate"> Tax Rate: %</label>
+          <input type= "text" name = "calculator" id="taxRate">
+          <br>
+          <label for ="tipPercentage"> Tip Percentage: %</label>
+          <input type= "text" name = "calculator" id="tipPercentage">
+        </fieldset>
+        <button type='submit' class= "submitCalc">Submit</button>
+        <button type='submit' class= "resetCalc">Reset</button>
+      </form>
     </div>
     <div class= "big container">
       <div class= "customerCharges small div">
         <h2>Customer Charges</h2>
+        Subtotal <span class="updateSubtotal">0.00</span>
+        <br>
+        Tip <span class = "updateTip">0.00</span>
+        <br>
+        <hr>
+        Total <span class= "updateTotal">0.00</span>
       </div>
       <div class= "myEarningsInfo small div">
         <h2>My Earnings Info</h2>
+        Tip Total: <span class="updateTipTotal">0.00</span>
+        <br>
+        Meal count: <span class="updateMealCount">0</span>
+        <br>
+        Average Tip Per Meal: <span class="averageTipPerMeal">0.00</span>
       </div>
     </div>
   </main>
-  <button class="resetButton">Reset</button>
+  <button type="submit" class="resetAllButton">Reset</button>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src=index.js></script>

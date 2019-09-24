@@ -7,7 +7,7 @@ body {
 }
 
 header {
-  color:green;
+  width: 100%;
   text-align: center;
   position: relative;
 }
@@ -42,11 +42,14 @@ main {
   height: 49%;
 }
 
-.resetButton {
+.resetAllButton {
   position: absolute;
   top: 105%;
   left: 85%;
   width: 15%;
+}
+
+button {
   padding: 5px;
   font-size: 15px;
   box-shadow: 5px 8px grey;
