@@ -45,11 +45,13 @@ main {
 .resetAllButton {
   position: absolute;
   top: 105%;
-  left: 85%;
-  width: 15%;
+  left: 83%;
+  width: 16%;
+  margin:0px;
 }
 
 button {
+  margin: 10px;
   padding: 5px;
   font-size: 15px;
   box-shadow: 5px 8px grey;
@@ -68,4 +70,21 @@ h2 {
   border-bottom: 2px solid black;
   font-size: 15px;
   padding: 5px;
+}
+
+input {
+  width: 40%;
+}
+fieldset{
+  width: 100%;
+  border:none;
+  padding: 10px;
+}
+
+section {
+  text-align: center;
+}
+
+span {
+  margin: 10px;
 }
