@@ -118,7 +118,6 @@ function updateAverageTipPerMeal() {
 function resetEntireCalculator() {
   $('.resetEntireApp').submit(function (event) {
     STORE.todaysCustomers = STORE.todaysCustomers.slice(0,1);
-    console.log(STORE);
     updateCustomerCharges();
   });
 
