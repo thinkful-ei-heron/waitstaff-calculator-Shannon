@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" href="#">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Waitstaff Calculator">
@@ -18,24 +19,30 @@
   <main>
     <div class="enterTheMealDetails big div">
       <h2>Enter the Meal Details</h2>
-      <form class="enterTheMealDetailsCalculator" action= "." method = "post">
+      <form class="enterTheMealDetailsCalculator" action="#" method="post">
         <fieldset name="MealDetailsCalculator">
-          <label for="baseMealPrice"> Base Meal Price: $</label>
-          <input type="number" name="calculator" id="baseMealPrice" required/>
-          <br>
-          <label for="taxRate"> Tax Rate: %</label>
-          <input type="number" name="calculator" id="taxRate" required/>
-          <br>
-          <label for="tipPercentage"> Tip Percentage: %</label>
-          <input type="number" name="calculator" id="tipPercentage" required/>
+          <div>
+            <label for="baseMealPrice"> Base Meal Price: $</label>
+            <input type="number" step="0.01" name="calculator" id="baseMealPrice" required>
+          </div>
+          <div>
+            <label for="taxRate"> Tax Rate: %</label>
+            <input type="number" step="0.01" name="calculator" id="taxRate" required>
+          </div>
+          <div>
+            <label for="tipPercentage"> Tip Percentage: %</label>
+            <input type="number" step="0.01" name="calculator" id="tipPercentage" required>
+          </div>
+          <form class="submitButton">
+            <button type='submit' class="submitCalc">Submit</button>
+            <button type='reset' class="resetCalc">Reset</button>
+          </form>
         </fieldset>
       </form>
       <section class="mealDetailButtons">
-        <form class="submitButton">
-          <button type='submit' class="submitCalc">Submit</button>
-        </form>
+
         <form class="resetCalcButton">
-          <button type='submit' class="resetCalc">Reset</button>
+          <!-- <button type='submit' class="resetCalc">Reset</button> -->
         </form>
       </section>
     </div>
