@@ -56,15 +56,20 @@ function updateCustomerCharges() {
 function submitButtonPressed() {
   $('.submitButton').submit(function (event) {
     event.preventDefault();
+    if ($('#baseMealPrice').val() === '' || $('#taxRate').val() === '' || $('#tipPercentage').val()=== '') {
+      alert('You must fill in all entry fields');
+    } else {
     STORE.todaysCustomers.push({ baseMealPrice: $('#baseMealPrice').val(), taxRate: ($('#taxRate').val() * 0.01), tipPercentage: ($('#tipPercentage').val()*0.01)});
     $('input').val('');
     updateCustomerCharges();
+    }
   });
 }
 
 
 function resetMealDetailsButtonPressed() {
   $('.resetCalcButton').submit(function (event) {
+    event.preventDefault();
     $('input').val('');
   });
 }
