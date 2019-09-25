@@ -21,20 +21,17 @@ function calculateSubtotal(obj) {
   let roundedResultone= Math.ceil(result * 100) / 100;
   let roundedResult = roundedResultone.toFixed(2);
   obj.subTotal= roundedResult;
-  $('.updateSubtotal').html(`${obj.subTotal}`);
+  $('.updateSubtotal').html(`$${obj.subTotal}`);
 }
 
 function calculateTip(obj) {
-  console.log(obj);
   let tipPercent = obj.tipPercentage;
-  console.log(tipPercent);
   let subTotal= obj.subTotal;
-  console.log(subTotal);
   let tipAmount= tipPercent * subTotal;
   let roundedTipAmountone = Math.ceil(tipAmount * 100) / 100;
   let roundedTipAmount = roundedTipAmountone.toFixed(2);
   obj.tip = roundedTipAmount;
-  $('.updateTip').html(`${obj.tip}`);
+  $('.updateTip').html(`$${obj.tip}`);
 }
 
 function calculateTotal(obj) {
@@ -73,36 +70,56 @@ function resetMealDetailsButtonPressed() {
 }
 
 function updateMyEarnings(obj) {
-calculateTipTotal(obj);
-updateMealCount();
-updateAverageTipPerMeal(obj);
+  calculateTipTotal(obj);
+  updateMealCount();
+  updateAverageTipPerMeal();
 }
 
 function calculateTipTotal(obj) {
-let myEarnings = STORE.myEarnings;
-let currentDailyTips= myEarnings.tipTotal;
-let incomingTip = obj.tip;
-let updatedTip = parseFloat(currentDailyTips) + parseFloat(incomingTip);
-myEarnings.tipTotal = updatedTip;
+  let myEarnings = STORE.myEarnings;
+  if(STORE.todaysCustomers.length === 1 ){
+    myEarnings.tipTotal = (0.00).toFixed(2);
+  } else {
+    let currentDailyTips= myEarnings.tipTotal;
+    let incomingTip = obj.tip;
+    let updatedTip = (parseFloat(currentDailyTips) + parseFloat(incomingTip)).toFixed(2);
+    myEarnings.tipTotal = updatedTip;
+  }
+  $('.updateTipTotal').html(`$${myEarnings.tipTotal}`);
 
 
 }
 
 function updateMealCount() {
   let myEarnings = STORE.myEarnings;
-  let currentMealCount = myEarnings.mealCount;
-  currentMealCount+= 1;
-  myEarnings.mealCount = currentMealCount;
+  if(STORE.todaysCustomers.length === 1) {
+    myEarnings.mealCount = 0;
+  } else {
+    let currentMealCount = myEarnings.mealCount;
+    currentMealCount+= 1;
+    myEarnings.mealCount = currentMealCount;
+  }
   $('.updateMealCount').html(`${myEarnings.mealCount}`);
 }
 
-function updateAverageTipPerMeal(obj) {
-
+function updateAverageTipPerMeal() {
+  let myEarnings = STORE.myEarnings;
+  if(STORE.todaysCustomers.length === 1){
+    myEarnings.averageTipPerMeal = (0.00).toFixed(2);
+  } else {
+    let tips = myEarnings.tipTotal;
+    let numMeals= myEarnings.mealCount;
+    let average = (tips/numMeals).toFixed(2);
+    myEarnings.averageTipPerMeal = average;
+  }
+  $('.averageTipPerMeal').html(`$${myEarnings.averageTipPerMeal}`);
 }
 
 function resetEntireCalculator() {
   $('.resetEntireApp').submit(function (event) {
-    console.log('hard reset button works');
+    STORE.todaysCustomers = STORE.todaysCustomers.slice(0,1);
+    console.log(STORE);
+    updateCustomerCharges();
   });
 
 }
