@@ -19,27 +19,29 @@
       <form class="enterTheMealDetailsCalculator">
         <fieldset name="MealDetailsCalculator">
           <label for ="baseMealPrice"> Base Meal Price: $</label>
-          <input type= "text" name = "calculator" id="baseMealPrice">
+          <input type= "number" name = "calculator" id="baseMealPrice">
           <br>
           <label for ="taxRate"> Tax Rate: %</label>
-          <input type= "text" name = "calculator" id="taxRate">
+          <input type= "number" name = "calculator" id="taxRate">
           <br>
           <label for ="tipPercentage"> Tip Percentage: %</label>
-          <input type= "text" name = "calculator" id="tipPercentage">
+          <input type= "number" name = "calculator" id="tipPercentage">
         </fieldset>
       </form>
+      <section class = "mealDetailButtons">
     <form class="submitButton">
         <button type='submit' class= "submitCalc">Submit</button>
       </form>
     <form class= "resetCalcButton">
         <button type='submit' class= "resetCalc">Reset</button>
       </form>
+      </section>
     </div>
     <div class= "big container">
       <div class= "customerCharges small div">
         <h2>Customer Charges</h2>
         <section class="customerChargesCalculator">
-        Subtotal: <span class="updateSubtotal">$0.00</span>
+        Subtotal:<span class="updateSubtotal">$0.00</span>
         <br>
         Tip: <span class = "updateTip">$0.00</span>
         <br>
@@ -50,7 +52,7 @@
       <div class= "myEarningsInfo small div">
         <h2>My Earnings Info</h2>
         <section class= "myEarningsInfoSection">
-          Tip Total: <span class="updateTipTotal">$0.00</span>
+        Tip Total: <span class="updateTipTotal">$0.00</span>
         <br>
         Meal count: <span class="updateMealCount">0</span>
         <br>
