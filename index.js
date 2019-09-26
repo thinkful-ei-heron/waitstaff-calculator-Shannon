@@ -23,35 +23,36 @@ const STORE = {
 function getNewestObj() {
   let obj = STORE.todaysCustomers;
   return obj[obj.length - 1];
-
 }
+
+//the following functions still require somewhat frequent use of
+//parseFloat due to the fact that it seems .toFixed(2) returns the values
+// to a string before setting the property value in the CONST object.
+
 function calculateSubtotal(obj) {
   let base = obj.baseMealPrice;
   let tax = obj.taxRate;
   let result = base * tax + base;
-  let roundedResultOne = Math.ceil(result * 100) / 100;
-  let roundedResult = roundedResultOne.toFixed(2);
-  obj.subTotal = parseFloat(roundedResult);
+  let roundedResult = Math.ceil(result * 100) / 100;
+  obj.subTotal = parseFloat(roundedResult).toFixed(2);
   $('.updateSubtotal').html(`$${obj.subTotal}`);
 }
 
 function calculateTip(obj) {
   let tipPercent = obj.tipPercentage;
-  let subTotal = obj.subTotal;
+  let subTotal = parseFloat(obj.subTotal);
   let tipAmount = tipPercent * subTotal;
-  let roundedTipAmountOne = Math.ceil(tipAmount * 100) / 100;
-  let roundedTipAmount = roundedTipAmountOne.toFixed(2);
-  obj.tip = parseFloat(roundedTipAmount);
+  let roundedTipAmount = Math.ceil(tipAmount * 100) / 100;
+  obj.tip = parseFloat(roundedTipAmount).toFixed(2);
   $('.updateTip').html(`$${obj.tip}`);
 }
 
 function calculateTotal(obj) {
-  let tip = obj.tip;
-  let subTotal = obj.subTotal;
+  let tip = parseFloat(obj.tip);
+  let subTotal = parseFloat(obj.subTotal);
   let total = tip + subTotal;
   let roundedTotal = Math.ceil(total * 100) / 100;
-  let twoDecimalTotal = roundedTotal.toFixed(2);
-  obj.total = parseFloat(twoDecimalTotal);
+  obj.total = parseFloat(roundedTotal).toFixed(2);
   $('.updateTotal').html(`$${obj.total}`);
 
 }
@@ -88,10 +89,10 @@ function calculateTipTotal(obj) {
   if (STORE.todaysCustomers.length === 1) {
     myEarnings.tipTotal = (0.00).toFixed(2);
   } else {
-    let currentDailyTips = myEarnings.tipTotal;
-    let incomingTip = obj.tip;
-    let updatedTip = (currentDailyTips + incomingTip).toFixed(2);
-    myEarnings.tipTotal = parseFloat(updatedTip);
+    let currentDailyTips = parseFloat(myEarnings.tipTotal);
+    let incomingTip = parseFloat(obj.tip);
+    let updatedTip = currentDailyTips + incomingTip;
+    myEarnings.tipTotal = updatedTip.toFixed(2);
   }
   $('.updateTipTotal').html(`$${myEarnings.tipTotal}`);
 
@@ -115,7 +116,7 @@ function updateAverageTipPerMeal() {
   if (STORE.todaysCustomers.length === 1) {
     myEarnings.averageTipPerMeal = (0.00).toFixed(2);
   } else {
-    let tips = myEarnings.tipTotal;
+    let tips = parseFloat(myEarnings.tipTotal);
     let numMeals = myEarnings.mealCount;
     let average = (tips / numMeals).toFixed(2);
     myEarnings.averageTipPerMeal = average;
