@@ -21,19 +21,19 @@
       <form class="enterTheMealDetailsCalculator" action= "#" method = "post">
         <fieldset name="MealDetailsCalculator">
           <label for="baseMealPrice"> Base Meal Price: $</label>
-          <input type="number" name="calculator" id="baseMealPrice" required/>
+          <input type="number" step="0.01" name="calculator" id="baseMealPrice" required/>
           <br>
           <label for="taxRate"> Tax Rate: %</label>
-          <input type="number" name="calculator" id="taxRate" required/>
+          <input type="number" step="0.01" name="calculator" id="taxRate" required/>
           <br>
           <label for="tipPercentage"> Tip Percentage: %</label>
-          <input type="number" name="calculator" id="tipPercentage" required/>
+          <input type="number" step="0.01" name="calculator" id="tipPercentage" required/>
         </fieldset>
       <!-- </form> -->
       <section class="mealDetailButtons">
         <!-- <form class="submitButton"> -->
           <button type='submit' class="submitCalc submitButton">Submit</button>
-        <!-- </form> -->
+          <!-- </form> -->
         <!-- <form class="resetCalcButton"> -->
           <button type='reset' class="resetCalc resetCalcButton">Reset</button>
         </section>

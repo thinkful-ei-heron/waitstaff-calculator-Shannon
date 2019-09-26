@@ -65,7 +65,7 @@ function updateCustomerCharges() {
 
 
 function submitButtonPressed() {
-  $('.submitButton').submit(function (event) {
+  $('.enterTheMealDetailsCalculator').submit(function (event) {
     event.preventDefault();
     if ($('#baseMealPrice').val() === '' || $('#taxRate').val() === '' || $('#tipPercentage').val()=== '') {
       alert('You must fill in all entry fields');
@@ -77,13 +77,17 @@ function submitButtonPressed() {
   });
 }
 
+// I was able to comment out the following because 
+//The <input type="reset"> button defines a reset button 
+//which resets all form values to its initial values.
 
-function resetMealDetailsButtonPressed() {
-  $('.resetCalcButton').submit(function (event) {
-    event.preventDefault();
-    $('input').val('');
-  });
-}
+// function resetMealDetailsButtonPressed() {
+//   $('.enterTheMealDetailsCalculator').on('reset', '.resetCalcButton', function(event) {
+//     event.preventDefault();
+//     console.log('reset button clicked');
+//     $('input').val('');
+//   });
+// }
 
 function updateMyEarnings(obj) {
   calculateTipTotal(obj);
@@ -141,7 +145,7 @@ function resetEntireCalculator() {
 
 function renderPage() {
   submitButtonPressed();
-  resetMealDetailsButtonPressed();
+  //resetMealDetailsButtonPressed();
   resetEntireCalculator();
 }
 
