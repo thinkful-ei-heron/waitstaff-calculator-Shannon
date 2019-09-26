@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" href="#">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Waitstaff Calculator">
@@ -20,24 +21,24 @@
       <h2>Enter the Meal Details</h2>
       <form class="enterTheMealDetailsCalculator" action= "#" method = "post">
         <fieldset name="MealDetailsCalculator">
-          <label for="baseMealPrice"> Base Meal Price: $</label>
-          <input type="number" step="0.01" name="calculator" id="baseMealPrice" required/>
-          <br>
-          <label for="taxRate"> Tax Rate: %</label>
-          <input type="number" step="0.01" name="calculator" id="taxRate" required/>
-          <br>
-          <label for="tipPercentage"> Tip Percentage: %</label>
-          <input type="number" step="0.01" name="calculator" id="tipPercentage" required/>
-        </fieldset>
-      <!-- </form> -->
-      <section class="mealDetailButtons">
-        <!-- <form class="submitButton"> -->
+          <div>
+            <label for="baseMealPrice"> Base Meal Price: $</label>
+            <input type="number" step="0.01" name="calculator" id="baseMealPrice" required/>
+          </div>
+          <div>
+            <label for="taxRate"> Tax Rate: %</label>
+            <input type="number" step="0.01" name="calculator" id="taxRate" required/>
+          </div>
+          <div>
+            <label for="tipPercentage"> Tip Percentage: %</label>
+            <input type="number" step="0.01" name="calculator" id="tipPercentage" required/>
+        </div>
+      </fieldset>
+        <section class="mealDetailButtons">
           <button type='submit' class="submitCalc submitButton">Submit</button>
-          <!-- </form> -->
-        <!-- <form class="resetCalcButton"> -->
           <button type='reset' class="resetCalc resetCalcButton">Reset</button>
         </section>
-        </form>
+      </form>
     </div>
     <div class="allCalculations">
       <div class="customerCharges">
@@ -59,12 +60,12 @@
       </div>
     </div>
   </main>
-  <form class="resetEntireApp">
-    <button type="submit" class="resetAllButton">Reset</button>
-  </form>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
+  <footer>
+    <form class="resetEntireApp">
+      <button type="submit" class="resetAllButton">Reset</button>
+    </form>
+</footer>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src=index.js></script>
 </body>
-
 </html>
