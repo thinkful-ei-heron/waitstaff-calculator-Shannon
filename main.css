@@ -72,7 +72,7 @@ section {
 button {
   margin: 10px;
   padding: 5px;
-  font-size: 15px;
+  font-size: 12px;
   box-shadow: 5px 8px grey;
   background-color: transparent;
 }
@@ -97,21 +97,25 @@ h2:hover {
   background-color: turquoise;
 }
 
-#baseMealPrice {
-  width: 40%;
+input {
+  width: 50%;
+  margin-left:auto;
+  margin-right:auto;
 }
 
-#taxRate, #tipPercentage {
-  width: 20%;
+.enterTheMealDetailsCalculator {
+  position: relative;
+  top: -40%;
 }
 
-
-fieldset{
+fieldset {
   text-align: left;
   width: 100%;
-  border:none;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
   padding: 10px;
-
+  border: none;
 }
 
 
@@ -125,16 +129,16 @@ hr {
 }
 
 .submitButton {
-  position: relative;
-  bottom: -230px;
-  left: -30px;
+  width: 50px;
 } 
 .resetCalcButton {
-  position: relative;
-  bottom: -180px;
-  left: 26px;
-  
-  
+  width: 50px;
+}
+
+.mealDetailButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 @media screen and (min-width: 450px){
@@ -150,20 +154,14 @@ h2 {
   font-size: 14px;
 }
 
-.submitButton  {
-  margin-right: 10px;
-}
 }
 
 @media screen and (min-width: 700px){
   h2 {
-    font-size: 24px;
+    font-size: 22px;
   }
   .enterTheMealDetails, .allCalculations {
-    font-size: 20px;
+    font-size: 18px;
   }
-
-  .submitButton  {
-    margin-right: 20px;
-  }
+  
 }

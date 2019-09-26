@@ -18,7 +18,7 @@
   <main>
     <div class="enterTheMealDetails">
       <h2>Enter the Meal Details</h2>
-      <form class="enterTheMealDetailsCalculator" action= "." method = "post">
+      <form class="enterTheMealDetailsCalculator" action= "#" method = "post">
         <fieldset name="MealDetailsCalculator">
           <label for="baseMealPrice"> Base Meal Price: $</label>
           <input type="number" name="calculator" id="baseMealPrice" required/>
@@ -29,15 +29,15 @@
           <label for="tipPercentage"> Tip Percentage: %</label>
           <input type="number" name="calculator" id="tipPercentage" required/>
         </fieldset>
-      </form>
+      <!-- </form> -->
       <section class="mealDetailButtons">
-        <form class="submitButton">
-          <button type='submit' class="submitCalc">Submit</button>
+        <!-- <form class="submitButton"> -->
+          <button type='submit' class="submitCalc submitButton">Submit</button>
+        <!-- </form> -->
+        <!-- <form class="resetCalcButton"> -->
+          <button type='reset' class="resetCalc resetCalcButton">Reset</button>
+        </section>
         </form>
-        <form class="resetCalcButton">
-          <button type='submit' class="resetCalc">Reset</button>
-        </form>
-      </section>
     </div>
     <div class="allCalculations">
       <div class="customerCharges">
