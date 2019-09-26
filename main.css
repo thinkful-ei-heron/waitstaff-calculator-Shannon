@@ -14,7 +14,6 @@ header {
 }
 
 main {
-  font-size: 13px;
   width:90%;
   margin-left:auto;
   margin-right:auto;
@@ -24,29 +23,42 @@ main {
   position: relative;
 }
 
-.container {
+.enterTheMealDetails, .allCalculations {
   width:49%;
   height:500px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-size: 12px;
 }
-.div {
+.myEarningsInfo, .customerCharges, .enterTheMealDetails {
   border: 2px solid black;
 }
-.big {
-  width: 49%;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.small {
+.customerCharges, .myEarningsInfo {
   width: 100%;
   height: 49%;
   display: flex;
   flex-direction: column;
+}
+
+section {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right:auto;
+  text-align: right;
+  padding: 3px;
+}
+
+.myEarningsInfoSection {
+  text-align: center;
+  width: 75%;
+}
+
+.horizontalLine {
+  border-bottom: 3px solid grey;
+  margin-bottom: 3px;
+  margin-top: 3px;
 }
 
 .resetAllButton {
@@ -71,12 +83,14 @@ button:hover {
 }
 
 h2 {
-  margin-top: 0px;
+  height: 35px;
   width: 100%;
   text-align:center;
   border-bottom: 2px solid black;
-  font-size: 15px;
-  padding: 5px;
+  font-size: 12px;
+  margin:0;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 h2:hover {
@@ -97,21 +111,10 @@ fieldset{
   width: 100%;
   border:none;
   padding: 10px;
-  position: relative;
-  top: 100%;
-  left: 4%
+
 }
 
-section {
-  margin-top: 20px;
-  text-align: right;
-  align-self: center;
-  padding: 3px;
-}
 
-.myEarningsInfoSection{
-  text-align: left;
-}
 span {
   margin: 10px;
 }
@@ -138,22 +141,25 @@ hr {
   .updateMealCount {
     margin-left: 35px;
   }
-    .myEarningsInfoSection{
-      text-align: right;
-}
+
 h2 {
-  font-size: 20px;
-}
-main {
   font-size: 16px;
 }
+
+.enterTheMealDetails, .allCalculations {
+  font-size: 14px;
+}
+
 .submitButton  {
   margin-right: 10px;
 }
 }
 
 @media screen and (min-width: 700px){
-  main {
+  h2 {
+    font-size: 24px;
+  }
+  .enterTheMealDetails, .allCalculations {
     font-size: 20px;
   }
 
